@@ -1,7 +1,7 @@
 import connectDB from "@/lib/connectDB"
 import Operacija from "@/models/Operacija"
 import { revalidatePath } from "next/cache"
-import { }
+import { redirect } from "next/navigation"
 
 const Form = () => {
     const addFormData = async (formData) => {
@@ -17,6 +17,7 @@ const Form = () => {
         await data.save()
 
         revalidatePath("/")
+        redirect('/')
     }
 
   return (
