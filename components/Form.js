@@ -1,5 +1,6 @@
 import connectDB from "@/lib/connectDB"
 import Operacija from "@/models/Operacija"
+import { revalidatePath } from "next/cache"
 
 const Form = () => {
     const addFormData = async (formData) => {
@@ -13,6 +14,8 @@ const Form = () => {
             description
         })
         await data.save()
+
+        revalidatePath("/new")
     }
 
   return (
