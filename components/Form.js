@@ -3,7 +3,7 @@ import Operacija from "@/models/Operacija"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-const Form = () => {
+const Form = async () => {
     const addFormData = async (formData) => {
         'use server'
         await connectDB()
